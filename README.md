@@ -13,7 +13,7 @@ A Node.js server is implemented to monitor incoming unread emails, automatically
 git clone https://github.com/narayan-raghuwanshi/mail-manager.git
 ```
 - Provide Gmail API access through [Google Cloud Console](https://developers.google.com/gmail/api/quickstart/nodejs) and download the credentials from it.
-- Now create a file named `credentials.json` in `src` folder and paste the downloaded credentials in `credentials.json`.
+- Now create a file named `credentials.json` in `root` folder and paste the downloaded credentials in `credentials.json`.
 ```bash
 npm install
 ```
