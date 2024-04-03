@@ -7,7 +7,6 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
-// If modifying these scopes, delete token.json.
 const SCOPES = [
     'https://www.googleapis.com/auth/gmail.modify',
     'https://www.googleapis.com/auth/gmail.send'
@@ -15,10 +14,6 @@ const SCOPES = [
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
 
-/**
- * Reads previously authorized credentials from the save file.
- * @return {Promise<OAuth2Client|null>}
- */
 async function loadSavedCredentialsIfExist() {
     try {
         const content = await fs.readFile(TOKEN_PATH);
@@ -29,12 +24,6 @@ async function loadSavedCredentialsIfExist() {
     }
 }
 
-/**
- * Serializes credentials to a file compatible with GoogleAUth.fromJSON.
- *
- * @param {OAuth2Client} client
- * @return {Promise<void>}
- */
 async function saveCredentials(client) {
     const content = await fs.readFile(CREDENTIALS_PATH);
     const keys = JSON.parse(content);
@@ -48,7 +37,6 @@ async function saveCredentials(client) {
     await fs.writeFile(TOKEN_PATH, payload);
 }
 
-/*Load or request or authorization to call APIs.*/
 async function authorize() {
     let client = await loadSavedCredentialsIfExist();
     if (client) {
@@ -64,15 +52,6 @@ async function authorize() {
     return client;
 }
 
-/**
- * Lists the labels in the user's account.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
-*/
-
-
-
-/* List the labels */
 async function listLabels(auth) {
     const gmail = google.gmail({ version: 'v1', auth });
     const res = await gmail.users.labels.list({
