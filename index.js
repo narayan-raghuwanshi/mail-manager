@@ -96,7 +96,7 @@ app.get("/", async (req, res) => {
 
         const replyTo = from.match(/<(.*)>/)[1];
         const replySubject = subject.startsWith('Re:') ? subject : `Re: ${subject}`;
-        const replyBody = `Dear, \n\n we have received your mail and will reply soon. \n\n Regards,\n Raj Patel`
+        const replyBody = `Dear, \n\n we have received your mail and will reply soon. \n\n Regards,\n Narayan Raghuwanshi`
 
         const rawMessage = [
             `From: me`,

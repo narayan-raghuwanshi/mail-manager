@@ -6,7 +6,7 @@ A Node.js server is implemented to monitor incoming unread emails, automatically
 - Reply new emails
 - Create Label
 - Assign Label to an email
-  
+
 ## Getting Started
 
 ```bash
